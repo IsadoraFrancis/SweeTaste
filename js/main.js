@@ -174,3 +174,11 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('pwabuilder-sw.js')
+      .then(reg => console.log('SW registrado:', reg))
+      .catch(err => console.error('Erro no SW:', err));
+  });
+}
